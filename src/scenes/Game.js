@@ -1,6 +1,13 @@
 import Phaser from '../lib/phaser.js'
 
 export default class Game extends Phaser.Scene{
+    
+    /** @type {Phaser.Physics.Arcade.Sprite} */
+    player
+
+    /** @type {Phaser.Types.Input.Keyboard.CursorKeys} */
+    cursors
+
     constructor(){
         super('game')
     }
@@ -9,6 +16,9 @@ export default class Game extends Phaser.Scene{
         this.load.image('background', 'assets/white.png')
         this.load.image('boundary' , 'assets/floor.png')
         this.load.image('wall' , 'assets/YkHgvD.png')
+        this.load.image('player', 'assets/maroon.png')
+
+        this.cursors = this.input.keyboard.createCursorKeys();
     }
 
     create(){
@@ -20,9 +30,9 @@ export default class Game extends Phaser.Scene{
         this.physics.add.staticImage(15, 20, 'boundary').setBodySize(2170, 40).setDisplaySize(2170, 40)
         this.physics.add.staticImage(15, 680, 'boundary').setBodySize(2170, 40).setDisplaySize(2170, 40)
         
+        this.player = this.physics.add.sprite(240, 320, 'player').setScale(0.05)
+
         
-        
-        //const player 
     }
 
     update(){
