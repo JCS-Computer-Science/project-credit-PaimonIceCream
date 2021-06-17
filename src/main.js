@@ -6,13 +6,13 @@ export default new Phaser.Game({
     type: Phaser.AUTO,
     width: 1100,
     height: 700,
-    
     scene: Game,
+    backgroundColor:'#FCFEFF',
     physics:{
         default: 'arcade',
         arcade:{
             gravity:{
-                y: 300
+                y: 500
             },
             debug: true
         }
