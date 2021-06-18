@@ -11,6 +11,9 @@ export default class Game extends Phaser.Scene {
     /** @type {Phaser.Physics.Arcade.StaticGroup} */
     wall
 
+    /** @type {Phaser.Physics.Arcade.World} */
+    timer
+
     /** @type {Phaser.Types.Input.Keyboard.CursorKeys} */
     cursors
 
@@ -58,7 +61,7 @@ export default class Game extends Phaser.Scene {
         var maxW = 400
         var velocity = 260
 
-        var timer = setInterval(() => {
+        this.timer = setInterval(() => {
             seconds = seconds + 0.1
             counter = counter + 0.1
             counterGhost = counterGhost + 0.1
@@ -118,11 +121,10 @@ export default class Game extends Phaser.Scene {
 
                 counter = 0
             }
-            console.log(counterGhost)
             //Ghost Block
-            if(counterGhost >= (6 + intervalLevel*intervalLevel)){
-                const width = Phaser.Math.Between(130, 150)
-                const height = 350 - width
+            if(counterGhost >= (4.4 + intervalLevel*intervalLevel)){
+                const width = Phaser.Math.Between(100, 150)
+                const height = 250 - width
                 var start
                 var speed
 
@@ -194,7 +196,10 @@ export default class Game extends Phaser.Scene {
     }
 
     killGame(player) {
-        console.log('ded')
+        this.player.setVisible(false)
+        this.physics.world.destroy(this.player)
+        this.physics.world.destroy(this.obstacle)
+        clearInterval(this.timer)
     }
 
 }
