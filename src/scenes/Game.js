@@ -55,7 +55,7 @@ export default class Game extends Phaser.Scene {
         this.canDash = true
         this.invincible = false
     }
-
+/* Dark Mode Preload
     preload() {
         this.load.image('boundary', 'assets/floor.png')
         this.load.image('wall', 'assets/YkHgvD.png')
@@ -67,20 +67,20 @@ export default class Game extends Phaser.Scene {
 
         this.cursors = this.input.keyboard.createCursorKeys();
     }
-
-    /* Dark Mode Preload
+ 
+       */
     preload() {
-        this.load.image('boundary', 'assets/floor.png')
-        this.load.image('wall', 'assets/YkHgvD.png')
-        this.load.image('player', 'assets/maroon.png')
-        this.load.image('obstacle', 'assets/blue.png')
-        this.load.image('instructions', 'assets/instructions.png')
-        this.load.image('poof', 'assets/poof.png')
-        this.load.image('rays', 'assets/rays.png')
+        this.load.image('boundary', 'darkModeAssets/download.jpg')
+        this.load.image('wall', 'darkModeAssets/stripez.png')
+        this.load.image('player', 'darkModeAssets/WhiteSquare.jpg')
+        this.load.image('obstacle', 'darkModeAssets/EAF4F9.jpg')
+        this.load.image('instructions', 'darkModeAssets/uh-oh.png')
+        this.load.image('poof', 'darkModeAssets/poof.png')
+        this.load.image('rays', 'darkModeAssets/pow.png')
 
         this.cursors = this.input.keyboard.createCursorKeys();
     }
-    */
+
 
     create() {
         // The Stage
@@ -126,11 +126,11 @@ export default class Game extends Phaser.Scene {
             this.scoreText.text = scoreValue
         }, 1000)
 
-
+// PLease Change this text according to mode
         this.dashReadyText = this.add.text(550, 680, 'Dash Ready', {
             fontSize: 30,
             color: '#000000',
-            backgroundColor: '#00FF00'
+            backgroundColor: '#FFFFFF'
         }).setOrigin(0.5)
 
 
@@ -350,12 +350,13 @@ export default class Game extends Phaser.Scene {
             })
 
             // Game Over Text
+            // Change between #000000 and #FFFFFF
             const gameWidth = this.scale.width * 0.5
             const gameHeight = this.scale.height * 0.5
 
             this.add.text(gameWidth, gameHeight, 'Press Enter to Retry', {
                 fontSize: 40,
-                color: '#000000',
+                color: '#FFFFFF',
             }).setOrigin(0.5)
         }
     }

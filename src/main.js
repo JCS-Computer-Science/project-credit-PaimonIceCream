@@ -8,7 +8,7 @@ export default new Phaser.Game({
     width: 1100,
     height: 700,
     scene: Game,
-    backgroundColor:'#FCFEFF',
+    backgroundColor:'#000000',
     physics:{
         default: 'arcade',
         arcade:{
@@ -16,3 +16,5 @@ export default new Phaser.Game({
         }
     }
 })
+
+//Note: for darkmode change colour to #000000, or #FCFEFF
