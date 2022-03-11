@@ -68,6 +68,20 @@ export default class Game extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
     }
 
+    /* Dark Mode Preload
+    preload() {
+        this.load.image('boundary', 'assets/floor.png')
+        this.load.image('wall', 'assets/YkHgvD.png')
+        this.load.image('player', 'assets/maroon.png')
+        this.load.image('obstacle', 'assets/blue.png')
+        this.load.image('instructions', 'assets/instructions.png')
+        this.load.image('poof', 'assets/poof.png')
+        this.load.image('rays', 'assets/rays.png')
+
+        this.cursors = this.input.keyboard.createCursorKeys();
+    }
+    */
+
     create() {
         // The Stage
         const leftWall = this.physics.add.staticImage(-176, 130, 'wall').setBodySize(450, 1200).setDisplaySize(450, 1200)
